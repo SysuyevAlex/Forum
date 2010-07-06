@@ -1,0 +1,32 @@
+
+
+
+<table>
+	<tr>
+		<th width="60%"> Topic Title </th>
+		<th width="10%"> Replies </th>
+		<th width="10%"> Creator </th>
+		<th width="10%"> Creation Time </th>
+		<th width="20%"> Last Post </th>
+	</tr>
+	<% for topic in @forum.topics %>	
+	<tr>
+		<td> <%=link_to h(topic.name), topic_path(topic.id) %></td>
+		<td> <%= topic.messages.count %> </td>
+		<td><%=topic.user.name %></td>
+		<td><%=topic.create_time %></td>
+		<td><%=topic.last_edit%></td>
+		<td> <%=link_to  "Show", topic%> <br/>
+		<% if user_signed_in? && current_user.role %>
+		<%=link_to "Edit", edit_topic_path(topic) %> <br/>
+		<%=link_to "Destroy", topic, :confirm => 'Are you sure?', :method => :delete %> </td>
+		<% end %>
+	</tr>
+	<%end %>
+
+</table>
+<% if user_signed_in? %>
+<p><%= link_to 'New Topic', "../topics/new?forum=#{@forum.id}" %><br/>
+<% end %>
+<%= link_to 'Back', forums_path %></p>
+

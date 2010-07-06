@@ -1,0 +1,27 @@
+
+
+<h1> <%= @topic.name %></h1>
+<br/>
+<table>
+<% for message in @topic.messages %>
+<tr name="message_title">
+	<td><%= message.name %> </td>
+</tr>
+<tr name="message_content">
+	<td><%= message.content %> </td>	
+	<td><%=message.user_id %></td>
+	<td><%=message.create_time %></td>
+	<% if user_signed_in? && current_user.role==1 %>
+	<td> <%=link_to 'Destroy', message, :confirm => 'Are you sure?', :method => :delete %> </td>	
+	<% end %>
+</tr>
+
+<% end %>
+
+</table>
+<%= link_to 'Back', "../forums/#{@topic.forum_id}" %>
+<% if user_signed_in? %>
+<%=link_to 'New', "../messages/new?topic=#{@topic.id}"%>
+<% end %>
+
+

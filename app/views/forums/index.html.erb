@@ -1,0 +1,30 @@
+<h1>Listing forums</h1>
+
+<table>
+  <tr>    
+    <th>Name</th>
+	<th>Creator</th>
+	<th>Creation Time</th>
+  </tr>
+
+<% for forum in @forums %>
+  <tr>    
+    <td>
+	<h3><%=link_to h(forum.name), forum_path(forum.id) %></h3><br/>
+	<small><%= forum.topics.count %> topics</small>
+	</td>
+    <td><%=forum.user.name %></td>
+	<td><%=forum.create_time %></td>
+    <td><%= link_to 'Show', forum %><br/>
+	<% if user_signed_in? && current_user.role %>
+    <%= link_to 'Edit', edit_forum_path(forum) %><br/>
+    <%= link_to 'Destroy', forum, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if user_signed_in? && current_user.role==1 %>
+<%= link_to 'New forum', new_forum_path %>
+<% end %>
