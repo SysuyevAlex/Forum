@@ -1,0 +1,30 @@
+#title_forum {
+  padding: 2px;
+  color: blue;
+  position: relative;
+  left: 40%;
+  font-style: italic;
+}
+#forum_name {
+  padding: 2px;  
+  color: blue;
+  display: table;
+}
+#forum_headers{
+  padding: 2px;
+  color: blue;
+  font-style: italic;
+}
+#forum_list{
+  padding: 2px;
+  color: blue;
+  margin: 0px auto;
+  font-style: italic;  
+  empty-cells: show;  
+}
+#forum_cell{
+  padding: 2px;
+  color: blue;
+  font-style: bold;
+  border: 2px solid black; 
+}
