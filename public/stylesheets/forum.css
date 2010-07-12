@@ -7,7 +7,7 @@
 }
 #forum_name {
   padding: 2px;  
-  color: blue;
+  color: #1B1;  
   display: table;
 }
 #forum_headers{
@@ -26,5 +26,64 @@
   padding: 2px;
   color: blue;
   font-style: bold;
+  border: 2px solid black;
+  text-align: center;
+}
+#forum_cellname{
+  padding: 2px;
+  color: blue;
+  font-weight: bold;
+  border: 2px solid black;
+  text-align: center;
+  font-size: 150%;
+}
+
+#topic_cell{
+  padding: 2px;
+  color: blue;
+  text-align: center;
   border: 2px solid black; 
+}
+#topic_name{
+  padding: 2px;
+  color: #62C;
+  font-weight: bolder;
+  font-size: 16px;
+}
+#topic_menu{
+  padding: 2px;
+  color: #22C;  
+  font-weight: bold;
+  font-size: 12px;
+}
+#message_title{
+  padding: 2px;
+  color: blue;  
+  font-weight: bold;
+  font-size: 120%;
+}
+#message_content{
+  padding: 2px;
+  color: black;  
+  font-weight: bold;
+  font-style: italic;
+  font-size: 12px;
+}
+#message_user{
+  padding: 2px;
+  color: green;  
+  font-weight: bold;  
+  font-size: 12px;
+}
+#message_time{
+  padding: 2px;
+  color: #62C;  
+  font-weight: bold;  
+  font-size: 12px;
+}
+#forum_menu{
+  padding: 2px;
+  color: #C26;  
+  font-weight: bold;  
+  font-size: 18px;
 }

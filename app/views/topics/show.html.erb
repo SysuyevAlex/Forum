@@ -4,24 +4,25 @@
 <br/>
 <table>
 <% for message in @topic.messages %>
-<tr name="message_title">
-	<td><%= message.name %> </td>
+<tr >
+	<td id="message_title"><%= message.name %> </td>
 </tr>
-<tr name="message_content">
-	<td><%= message.content %> </td>	
-	<td><%=message.user.name %></td>
-	<td><%=message.create_time %></td>
+<tr id="message_content">
+	<td id="message_cell"><%= message.content %> </td>	
+	<td id="message_user"><%=message.user.name %></td>
+	<td id="message_time"><%=message.create_time %></td>
 	<% if user_signed_in? && current_user.role==1 %>
-	<td> <%=link_to 'Destroy', message, :confirm => 'Are you sure?', :method => :delete %> </td>	
+	<td id="message_cell"> <%=link_to 'Destroy', message, :confirm => 'Are you sure?', :method => :delete %> </td>	
 	<% end %>
 </tr>
 
 <% end %>
 
 </table>
-<%= link_to 'Back', "#{forums_path}/#{@topic.forum_id}" %>
 
-<%=link_to 'New', "#{messages_path}/new?topic=#{@topic.id}"%>
+<%=link_to 'New Message', "#{messages_path}/new?topic=#{@topic.id}", :id=>"forum_menu"%>
+<br/>
+<%= link_to 'Back', "#{forums_path}/#{@topic.forum_id}", :id=>"forum_menu" %>
 
 
 
