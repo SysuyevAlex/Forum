@@ -1,0 +1,33 @@
+<h1 id="title_forum">Listing forums</h1>
+
+<table id="forum_list">
+  <tr id="forum_headers">    
+    <th>Name</th>
+	<th>Creator</th>
+	<th>Creation Time</th>
+  </tr>
+
+<% for forum in @forums %>
+  <tr>    
+    <td id="forum_cell">
+	<h3 id="forum_name"><%=link_to h(forum.name), forum_path(forum.id)%></h3><br/>
+	<small><%= forum.topics.count %> topics</small>
+	</td>
+    <td id="forum_cell"><%=forum.user.name %></td>
+	<td id="forum_cell"><%=forum.create_time %></td>
+    
+	<% if user_signed_in? && current_user.role==1 %>
+	<td id="forum_contol">
+    <%= link_to 'Edit', edit_forum_path(forum) %><br/>
+    <%= link_to 'Destroy', forum, :confirm => 'Are you sure?', :method => :delete %>
+	</td>	
+	<% end %>
+  </tr>
+<% end %>
+</table>
+
+<% if user_signed_in? && current_user.role==1 %>
+<p id="forum_new">
+<%= link_to 'New forum', new_forum_path %>
+</p>
+<% end %>
