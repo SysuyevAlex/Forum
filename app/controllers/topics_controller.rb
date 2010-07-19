@@ -7,8 +7,7 @@ before_filter :get_admin, :only => [:destroy, :edit]
     @topics = Topic.find(:all)
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @topics }
+      format.html # index.html.erb      
     end
   end
 
@@ -23,8 +22,7 @@ before_filter :get_admin, :only => [:destroy, :edit]
 		redirect_to :action=> :index
 	else
 		respond_to do |format|
-			format.html # show.html.erb
-			format.xml  { render :xml => @topic }
+			format.html # show.html.erb			
 		end
 	end
   end
@@ -35,8 +33,7 @@ before_filter :get_admin, :only => [:destroy, :edit]
 		@topic = Topic.new
 
 		respond_to do |format|
-			format.html # new.html.erb
-			format.xml  { render :xml => @topic }
+			format.html # new.html.erb			
 		end
   end
 
@@ -51,8 +48,7 @@ before_filter :get_admin, :only => [:destroy, :edit]
     @topic = Topic.new(params[:topic])
 	if @topic.save
 		@topic=Topic.new(:name=>params[:topic][:name],
-			:forum_id => params[:topic][:forum_id],
-			#:forum_id => params[:topic][:user_id],
+			:forum_id => params[:topic][:forum_id],			
 			:create_time=>params[:topic][:create_time],
 			:last_edit => params[:topic][:last_edit])
 			flash[:notice]="Successfully created topic";

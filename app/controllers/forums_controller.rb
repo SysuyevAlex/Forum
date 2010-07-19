@@ -3,12 +3,21 @@ class ForumsController < ApplicationController
   # GET /forums.xml
   before_filter :authenticate_user!, :except => [:show, :index]
   before_filter :get_admin, :only => [:new, :destroy, :edit]
-
+  def search	
+	@messages=params[:search_message]
+	@topics=params[:search_topic]
+	@time=params[:search_time]
+	if (! ((params[:search].blank?) || ((params[:search_message].nil?)&&(params[search_topic].nil?))) )
+		#@search_forums=Forum.find_forums(params[:search])
+		@search_topics=Forum.get_topics(params[:search], params[:search_message], params[:search_topic],params[:search_time])
+	else
+		redirect_to(forums_path)
+	end
+  end 
   def index
     @forums = Forum.find(:all)
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @forums }
+      format.html # index.html.erb      
     end
   end
 
@@ -22,8 +31,7 @@ class ForumsController < ApplicationController
 		redirect_to :action=> :index
 	else
 		respond_to do |format|
-			format.html # show.html.erb
-			format.xml  { render :xml => @forum }
+			format.html # show.html.erb			
 		end
 	end
   end
@@ -34,8 +42,7 @@ class ForumsController < ApplicationController
 		@forum = Forum.new
 
 		respond_to do |format|
-			format.html # new.html.erb
-			format.xml  { render :xml => @forum }
+			format.html # new.html.erb			
 		end
   end
 
@@ -52,11 +59,9 @@ class ForumsController < ApplicationController
     respond_to do |format|
       if @forum.save
         flash[:notice] = 'Forum was successfully created.'
-        format.html { redirect_to(@forum) }
-        format.xml  { render :xml => @forum, :status => :created, :location => @forum }
+        format.html { redirect_to(@forum) }        
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @forum.errors, :status => :unprocessable_entity }
+        format.html { render :action => "new" }        
       end
     end
   end
@@ -69,11 +74,9 @@ class ForumsController < ApplicationController
     respond_to do |format|
       if @forum.update_attributes(params[:forum])
         flash[:notice] = 'Forum was successfully updated.'
-        format.html { redirect_to(@forum) }
-        format.xml  { head :ok }
+        format.html { redirect_to(@forum) }        
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @forum.errors, :status => :unprocessable_entity }
+        format.html { render :action => "edit" }        
       end
     end
   end
@@ -83,10 +86,8 @@ class ForumsController < ApplicationController
   def destroy
 		@forum = Forum.find(params[:id])
 		@forum.destroy
-
 		respond_to do |format|
-		format.html { redirect_to(forums_url) }
-		format.xml  { head :ok }
+			format.html { redirect_to(forums_url) }		
 		end
 	end
 end

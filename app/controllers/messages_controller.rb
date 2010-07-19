@@ -8,8 +8,7 @@ class MessagesController < ApplicationController
   def new
 		@message = Message.new
 		respond_to do |format|
-			format.html # new.html.erb
-			format.xml  { render :xml => @message }
+			format.html # new.html.erb			
 		end
   end
 
@@ -30,11 +29,9 @@ class MessagesController < ApplicationController
     respond_to do |format|
       if @message.save
         flash[:notice] = 'Message was successfully created.'
-        format.html { redirect_to "/topics/#{@message.topic_id}" }
-        format.xml  { render :xml => @message, :status => :created, :location => "/topics/#{@message.topic_id}" }
+        format.html { redirect_to "/topics/#{@message.topic_id}" }        
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @message.errors, :status => :unprocessable_entity }
+        format.html { render :action => "new" }        
       end
     end
   end
@@ -43,15 +40,12 @@ class MessagesController < ApplicationController
   # PUT /messages/1.xml
   def update
     @message = Message.find(params[:id])
-
     respond_to do |format|
       if @message.update_attributes(params[:message])
         flash[:notice] = 'Message was successfully updated.'
-        format.html { redirect_to(@message) }
-        format.xml  { head :ok }
+        format.html { redirect_to(@message) }        
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @message.errors, :status => :unprocessable_entity }
+        format.html { render :action => "edit" }        
       end
     end
   end
@@ -63,8 +57,7 @@ class MessagesController < ApplicationController
 		@message.destroy
 
 		respond_to do |format|
-			format.html { redirect_to("../topics/#{@message.topic_id}" ) }
-			format.xml  { head :ok }
+			format.html { redirect_to("../topics/#{@message.topic_id}" ) }			
 		end
   end  
 end

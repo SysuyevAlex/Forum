@@ -5,14 +5,38 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Forums: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold', 'forum' %>
+  <%= javascript_include_tag :defaults %>
 </head>
 <body>
+
 <div id="search">
 <% form_tag ({ :controller=>:forums, :action=>'search', :method => 'get'}) do%>
 	<%= h text_field_tag :search%>
+	<br/>
+	<%=link_to_function "Parameters", visual_effect(:toggle_slide, "search_params")	%>
+	<br/>
+	<div id="search_params" style="display: none">
+		<div id="place_search">
+			<%= check_box_tag (:search_message,1, true) %>
+			<%=label_tag(:search_message, "Search in messages") %><br/>
+			<%= check_box_tag (:search_topic) %>
+			<%=label_tag(:search_topic, "Search in topics") %><br/>
+		</div>
+		<div id="time_search">
+			<%= radio_button_tag (:search_time, "day") %>
+			<%=label_tag(:search_today, "Search today") %><br/>
+			<%= radio_button_tag (:search_time, "week", true) %>
+			<%=label_tag(:search_week, "Search week") %><br/>
+			<%= radio_button_tag (:search_time, "month") %>
+			<%=label_tag(:search_month, "Search month") %><br/>
+			<%= radio_button_tag (:search_time, "year") %>
+			<%=label_tag(:search_year, "Search year") %>
+		</div>
+	</div>
 	<%=submit_tag "Search", :name => nil%>
 <% end %>
 </div>
+
 <div id="user_nav">
 <%if user_signed_in?%>
 	signed in as <%=current_user.name %>
