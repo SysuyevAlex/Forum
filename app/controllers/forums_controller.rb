@@ -5,7 +5,7 @@ class ForumsController < ApplicationController
   before_filter :get_admin, :except => [:show, :index, :search]
   def search
 	s=Search.new
-	if (! ((params[:search].blank?) || ((params[:search_message].nil?)&&(params[search_topic].nil?))) )		
+	if (! ((params[:search].blank?) || ((params[:search_message].nil?)&&(params[:search_topic].nil?))) )		
 		@search_topics=s.get_topics(params[:search], params[:search_message], params[:search_topic],params[:search_time])
 	else
 		redirect_to(forums_path)
