@@ -1,11 +1,6 @@
 require 'test_helper'
 
 class MessagesControllerTest < ActionController::TestCase
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:messages)
-  end
 
   test "should get new" do
     get :new
@@ -18,11 +13,6 @@ class MessagesControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to message_path(assigns(:message))
-  end
-
-  test "should show message" do
-    get :show, :id => messages(:one).to_param
-    assert_response :success
   end
 
   test "should get edit" do

@@ -6,9 +6,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :topics
 
   map.resources :forums
+  
+  map.resources :forums, :collection =>{:search => [:get, :post]}
 
   map.root :controller => "forums"
-
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  
 end

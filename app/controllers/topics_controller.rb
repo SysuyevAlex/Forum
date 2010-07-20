@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
 before_filter :authenticate_user!, :except => [:show]
-before_filter :get_admin, :only => [:destroy, :edit]
+before_filter :get_admin, :only => [:destroy, :edit, :update]
   # GET /topics
   # GET /topics.xml
   def index

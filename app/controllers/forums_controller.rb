@@ -1,14 +1,10 @@
 class ForumsController < ApplicationController
   # GET /forums
-  # GET /forums.xml
-  before_filter :authenticate_user!, :except => [:show, :index]
-  before_filter :get_admin, :only => [:new, :destroy, :edit]
-  def search	
-	@messages=params[:search_message]
-	@topics=params[:search_topic]
-	@time=params[:search_time]
-	if (! ((params[:search].blank?) || ((params[:search_message].nil?)&&(params[search_topic].nil?))) )
-		#@search_forums=Forum.find_forums(params[:search])
+  # GET /forums.xml  
+  before_filter :authenticate_user!, :only =>[:search]
+  before_filter :get_admin, :except => [:show, :index, :search]
+  def search
+	if (! ((params[:search].blank?) || ((params[:search_message].nil?)&&(params[search_topic].nil?))) )		
 		@search_topics=Forum.get_topics(params[:search], params[:search_message], params[:search_topic],params[:search_time])
 	else
 		redirect_to(forums_path)

@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.xml
   before_filter :authenticate_user!
-  before_filter :get_admin, :only => [:destroy, :edit]
+  before_filter :get_admin, :only => [:destroy, :edit, :update]
   # GET /messages/new
   # GET /messages/new.xml
   def new
