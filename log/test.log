@@ -1,0 +1,24 @@
+  [4;36;1mTopic Load (0.0ms)[0m   [0;1mSELECT * FROM "topics" WHERE (name LIKE '%dd%' and create_time>'2009-07-21 15:50:39') [0m
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM "messages" WHERE (create_time>'2009-07-21 15:50:39' and (name LIKE '%dd%' OR content LIKE '%dd%')) [0m
+  [4;36;1mTopic Load (0.0ms)[0m   [0;1mSELECT * FROM "topics" WHERE (name LIKE '%d%' and create_time>'2009-07-21 15:50:39') [0m
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM "messages" WHERE (create_time>'2009-07-21 15:50:39' and (name LIKE '%d%' OR content LIKE '%d%')) [0m
+  [4;36;1mTopic Load (0.0ms)[0m   [0;1mSELECT * FROM "topics" WHERE (name LIKE '%First%' and create_time>'2009-07-21 15:54:57') [0m
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM "messages" WHERE (create_time>'2009-07-21 15:54:57' and (name LIKE '%First%' OR content LIKE '%First%')) [0m
+  [4;36;1mTopic Load (0.0ms)[0m   [0;1mSELECT * FROM "topics" WHERE (name LIKE '%o%' and create_time>'2009-07-21 15:54:57') [0m
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM "messages" WHERE (create_time>'2009-07-21 15:54:57' and (name LIKE '%o%' OR content LIKE '%o%')) [0m
+  [4;36;1mTopic Load (0.0ms)[0m   [0;1mSELECT * FROM "topics" WHERE (name LIKE '%First%' and create_time>'2009-07-21 15:56:17') [0m
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM "messages" WHERE (create_time>'2009-07-21 15:56:17' and (name LIKE '%First%' OR content LIKE '%First%')) [0m
+  [4;36;1mTopic Load (0.0ms)[0m   [0;1mSELECT * FROM "topics" WHERE (name LIKE '%o%' and create_time>'2009-07-21 15:56:17') [0m
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM "messages" WHERE (create_time>'2009-07-21 15:56:17' and (name LIKE '%o%' OR content LIKE '%o%')) [0m
+  [4;36;1mTopic Load (0.0ms)[0m   [0;1mSELECT * FROM "topics" WHERE (name LIKE '%First%' and create_time>'2009-07-21 15:57:48') [0m
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM "messages" WHERE (create_time>'2009-07-21 15:57:48' and (name LIKE '%First%' OR content LIKE '%First%')) [0m
+  [4;36;1mTopic Load (0.0ms)[0m   [0;1mSELECT * FROM "topics" WHERE (name LIKE '%o%' and create_time>'2009-07-21 15:57:48') [0m
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM "messages" WHERE (create_time>'2009-07-21 15:57:48' and (name LIKE '%o%' OR content LIKE '%o%')) [0m
+  [4;36;1mTopic Load (0.0ms)[0m   [0;1mSELECT * FROM "topics" WHERE (name LIKE '%First%' and create_time>'2009-07-21 16:08:06') [0m
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM "messages" WHERE (create_time>'2009-07-21 16:08:06' and (name LIKE '%First%' OR content LIKE '%First%')) [0m
+  [4;36;1mTopic Load (0.0ms)[0m   [0;1mSELECT * FROM "topics" WHERE (name LIKE '%o%' and create_time>'2009-07-21 16:08:06') [0m
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM "messages" WHERE (create_time>'2009-07-21 16:08:06' and (name LIKE '%o%' OR content LIKE '%o%')) [0m
+  [4;36;1mTopic Load (0.0ms)[0m   [0;1mSELECT * FROM "topics" WHERE (name LIKE '%First%' and create_time>'2009-07-21 16:09:50') [0m
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM "messages" WHERE (create_time>'2009-07-21 16:09:50' and (name LIKE '%First%' OR content LIKE '%First%')) [0m
+  [4;36;1mTopic Load (0.0ms)[0m   [0;1mSELECT * FROM "topics" WHERE (name LIKE '%o%' and create_time>'2009-07-21 16:09:50') [0m
+  [4;35;1mMessage Load (0.0ms)[0m   [0mSELECT * FROM "messages" WHERE (create_time>'2009-07-21 16:09:50' and (name LIKE '%o%' OR content LIKE '%o%')) [0m
