@@ -1,10 +1,10 @@
-#User.delete_all
+User.delete_all
 Forum.delete_all
 Topic.delete_all
 Message.delete_all
 
-admin=User.create({:name=>'Admin', :email=>'probitiy@admin.ru', :password=>'11111', :password_confirmation=>'33333', :role=>1})
-user=User.create({:name=>'FirstUser', :email=>'probitiy@user.ru', :password=>'22222', :password_confirmation=>'44444', :role=>0})
+admin=User.create({:name=>'Admin', :email=>'probitiy@admin.ru', :password=>'11111', :password_confirmation=>'11111', :role=>1})
+user=User.create({:name=>'FirstUser', :email=>'probitiy@user.ru', :password=>'22222', :password_confirmation=>'22222', :role=>0})
 
 forums = Forum.create([{:name=>'First test forum', :create_time=>Time.now-3.month, :user_id=>admin.id},
 			{:name=>'Forum form Seed', :create_time=>Time.now-2.week, :user_id=>admin.id},

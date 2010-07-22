@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 def get_admin
   	if((! user_signed_in?) || (current_user.role!=1))
 		flash[:notice]="You don't have rights for this action"
-		redirect_to (:controller=> "forums", :action=>"index")
+		redirect_to(:controller=> "forums", :action=>"index")
 	end
 end
   
