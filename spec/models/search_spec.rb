@@ -26,7 +26,7 @@ describe Search do
   it "should find one topic with First" do
     @search.get_topics("First", nil, 1, "year").should_not eql(nil)
 	@search.get_topics("First", nil, 1, "year").size.should eql(1)
-	@search.get_topics("First", nil, 1, "year")[0].name.should eql ('First topic')
+	@search.get_topics("First", nil, 1, "year")[0].name.should eql('First topic')
   end
   it "should find find two messages and only one topic" do
     @search.find_messages('o', Time.now-1.year).size.should eql(2);
@@ -43,6 +43,25 @@ describe Search do
   it "should not find deleted message" do
 	Message.delete_all(["name = ?", "test message"])
 	@search.get_topics('Kakoy to tekst', 1, nil, 'year').size.should eql(0);	
+  end
+  it "should find message created today" do
+	Message.create([{:name=>'test message',:content=>'Kakoy to tekst', :create_time=>Time.now, :user_id=>User.find(:first).id, :topic_id=>Topic.find(:first).id}])
+	@search.get_topics('', 1, nil, 'day').size.should eql(1);
+  end
+  it "should not find any messages created today" do
+	Message.delete_all(["name = ?", "test message"])
+	@search.get_topics('', 1, nil, 'day').size.should eql(0);
+  end
+  it "should find message created a week ago" do
+	Message.create([{:name=>'test message',:content=>'Kakoy to tekst', :create_time=>Time.now-4.days, :user_id=>User.find(:first).id, :topic_id=>Topic.find(:first).id}])
+	@search.get_topics('', 1, nil, 'week').size.should eql(1);
+  end
+  it "should not find any messages created week ago" do
+	Message.delete_all(["name = ?", "test message"])
+	@search.get_topics('', 1, nil, 'week').size.should eql(0);
+  end
+  it "should not find three topics" do
+	@search.get_topics('', nil, 1, 'year').size.should eql(3);
   end
 end
 
