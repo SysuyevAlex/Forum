@@ -32,4 +32,17 @@ describe Search do
     @search.find_messages('o', Time.now-1.year).size.should eql(2);
     @search.get_topics('o', 1, nil, 'year').size.should eql(1);
   end
+  it "should find nothing" do
+	@search.get_topics('Kakoy to tekst', 1, 1, 'year').size.should eql(0);
+  end
+  
+  it "should find added message" do
+	Message.create([{:name=>'test message',:content=>'Kakoy to tekst', :create_time=>Time.now-1.month, :user_id=>User.find(:first).id, :topic_id=>Topic.find(:first).id}])
+	@search.get_topics('Kakoy to tekst', 1, nil, 'year').size.should eql(1);
+  end
+  it "should not find deleted message" do
+	Message.delete_all(["name = ?", "test message"])
+	@search.get_topics('Kakoy to tekst', 1, nil, 'year').size.should eql(0);	
+  end
 end
+
