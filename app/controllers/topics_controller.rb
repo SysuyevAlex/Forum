@@ -46,6 +46,6 @@ before_filter :get_admin, :only => [:destroy, :edit, :update]
   def destroy
 		@topic = Topic.find(params[:id])
 		@topic.destroy		
-		redirect_to "#{forums_path}/#{@topic.forum_id}" }		
+		redirect_to "#{forums_path}/#{@topic.forum_id}"		
   end  
 end

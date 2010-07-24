@@ -5,7 +5,7 @@
 	</tr>	
 	<% for topic in @search_topics %>		
 	<tr>
-		<td> <%=link_to  h(topic.name), "#{topics_path}/#{topic.id}" %> <br/>
+		<td> <%=link_to  h(topic.name), "#{forums_path}/#{topic.forum_id}/topics/#{topic.id}" %> <br/>
 	</tr>
 	<%end %>
 </table>
