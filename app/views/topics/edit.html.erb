@@ -11,5 +11,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @topic %> |
-<%= link_to 'Back', "../../forums/#{@topic.forum_id}" %>
+<%= link_to 'Back', "#{forums_path}/#{@topic.forum_id}" %>

@@ -5,7 +5,7 @@ Message.delete_all
 
 admin=User.create({:name=>'Admin', :email=>'probitiy@admin.ru', :password=>'11111', :password_confirmation=>'11111', :role=>1})
 user=User.create({:name=>'FirstUser', :email=>'probitiy@user.ru', :password=>'22222', :password_confirmation=>'22222', :role=>0})
-
+User.first.update_attribute(:role,1)
 forums = Forum.create([{:name=>'First test forum', :create_time=>Time.now-3.month, :user_id=>admin.id},
 			{:name=>'Forum form Seed', :create_time=>Time.now-2.week, :user_id=>admin.id},
 			{:name=>'Last forum', :create_time=>Time.now, :user_id=>admin.id}])

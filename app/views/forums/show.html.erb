@@ -8,7 +8,7 @@
 	</tr>
 	<% for topic in @forum.topics %>	
 	<tr>
-		<td id="topic_cell"> <%=link_to h(topic.name), topic_path(topic.id), :id=>"topic_name"%></td>
+		<td id="topic_cell"> <%=link_to h(topic.name), "#{forums_path}/#{@forum.id}/topics/#{topic.id}", :id=>"topic_name"%></td>
 		<td id="topic_cell"> <%= topic.messages.count %> </td>
 		<td id="topic_cell"><%=topic.user.name %></td>
 		<td id="topic_cell"><%=topic.create_time %></td>
@@ -24,6 +24,6 @@
 
 </table>
 
-<p><%= link_to 'New Topic', "../topics/new?forum=#{@forum.id}", :id=>"forum_menu" %><br/>
+<p><%= link_to 'New Topic', "#{topics_path}/new?forum=#{@forum.id}", :id=>"forum_menu" %><br/>
 <%= link_to 'Back', forums_path, :id=>"forum_menu" %></p>
 

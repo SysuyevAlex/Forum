@@ -1,5 +1,5 @@
 <h1>Add topic</h1>
-<% form_for @topic do |f| %> 
+<% form_for @topic, :url=>{:controller=>"topics", :action=>"create"} do |f| %> 
 
 <%= error_messages_for :topic %>
   <p>
